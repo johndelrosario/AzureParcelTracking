@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29926.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureParcelTracking", "AzureParcelTracking\AzureParcelTracking.csproj", "{5837A566-473F-4EF2-850A-7E0CDE4AE9F8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureParcelTracking.Application", "AzureParcelTracking.Application\AzureParcelTracking.Application.csproj", "{F58F41E5-DA91-4E3B-B629-8E0E1BBD497B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureParcelTracking.Commands", "AzureParcelTracking.Commands\AzureParcelTracking.Commands.csproj", "{FC639BF4-B1D0-43CF-82E2-DC536A3850B6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureParcelTracking.Tests", "AzureParcelTracking.Tests\AzureParcelTracking.Tests.csproj", "{3CBB069C-FA09-496E-97CD-9F7B96DA9D2C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Files", "Files", "{93210DA7-B25F-4844-87CC-181B3F7F6A04}"
+	ProjectSection(SolutionItems) = preProject
+		readme.md = readme.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5837A566-473F-4EF2-850A-7E0CDE4AE9F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5837A566-473F-4EF2-850A-7E0CDE4AE9F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5837A566-473F-4EF2-850A-7E0CDE4AE9F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5837A566-473F-4EF2-850A-7E0CDE4AE9F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F58F41E5-DA91-4E3B-B629-8E0E1BBD497B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F58F41E5-DA91-4E3B-B629-8E0E1BBD497B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F58F41E5-DA91-4E3B-B629-8E0E1BBD497B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F58F41E5-DA91-4E3B-B629-8E0E1BBD497B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC639BF4-B1D0-43CF-82E2-DC536A3850B6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC639BF4-B1D0-43CF-82E2-DC536A3850B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC639BF4-B1D0-43CF-82E2-DC536A3850B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC639BF4-B1D0-43CF-82E2-DC536A3850B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3CBB069C-FA09-496E-97CD-9F7B96DA9D2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3CBB069C-FA09-496E-97CD-9F7B96DA9D2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3CBB069C-FA09-496E-97CD-9F7B96DA9D2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3CBB069C-FA09-496E-97CD-9F7B96DA9D2C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {13306DEA-9755-4C75-9139-EA65931B867A}
+	EndGlobalSection
+EndGlobal
