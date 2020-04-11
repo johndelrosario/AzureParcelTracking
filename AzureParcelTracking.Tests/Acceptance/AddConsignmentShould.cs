@@ -39,7 +39,7 @@ namespace AzureParcelTracking.Tests.Acceptance
                 }
             });
 
-            "When i submit the consignment".x(async () => response = await ExecuteHttpAsync(new AddConsignmentCommand
+            "When I submit the consignment".x(async () => response = await ExecuteHttpAsync(new AddConsignmentCommand
             {
                 CreatedByUserId = Guid.NewGuid(),
                 Consignment = newConsignment
@@ -47,7 +47,7 @@ namespace AzureParcelTracking.Tests.Acceptance
 
             "Then I receive an OK result and a consignment".x(() =>
             {
-                Assert.Equal(200, response.StatusCode);
+                Assert.Equal((int) HttpStatusCode.OK, response.StatusCode);
                 savedConsignment = response.GetJson<Consignment>();
                 Assert.NotNull(savedConsignment);
             });
@@ -78,7 +78,7 @@ namespace AzureParcelTracking.Tests.Acceptance
         [Scenario]
         public void ReturnBadRequestOnNoUserId(NewConsignment newConsignment, HttpResponse response)
         {
-            "Given a new consignment with an empty sender name, address1, phone and post code".x(() => newConsignment =
+            "Given a new consignment".x(() => newConsignment =
                 new NewConsignment
                 {
                     Sender = new Address
@@ -99,10 +99,11 @@ namespace AzureParcelTracking.Tests.Acceptance
                     }
                 });
 
-            "When I submit the consignment".x(async () => response = await ExecuteHttpAsync(new AddConsignmentCommand
-            {
-                Consignment = newConsignment
-            }));
+            "When I submit the consignment without a user id".x(async () => response = await ExecuteHttpAsync(
+                new AddConsignmentCommand
+                {
+                    Consignment = newConsignment
+                }));
 
             "Then I receive a bad request status code".x(() =>
                 Assert.Equal((int) HttpStatusCode.BadRequest, response.StatusCode));
@@ -169,26 +170,27 @@ namespace AzureParcelTracking.Tests.Acceptance
         [Scenario]
         public void ReturnBadRequestOnInvalidConsignmentReceiver(NewConsignment newConsignment, HttpResponse response)
         {
-            "Given a new consignment with an empty sender name, address1, phone and post code".x(() => newConsignment =
-                new NewConsignment
-                {
-                    Sender = new Address
+            "Given a new consignment with an empty receiver name, address1, phone and post code".x(() =>
+                newConsignment =
+                    new NewConsignment
                     {
-                        Address1 = "My Address 1",
-                        Address2 = "My Address 2",
-                        Name = "Sender Name",
-                        Phone = "Sender Phone",
-                        Postcode = "Sender Postcode"
-                    },
-                    Receiver = new Address
-                    {
-                        Address1 = string.Empty,
-                        Address2 = "My Address 2",
-                        Name = string.Empty,
-                        Phone = string.Empty,
-                        Postcode = string.Empty
-                    }
-                });
+                        Sender = new Address
+                        {
+                            Address1 = "My Address 1",
+                            Address2 = "My Address 2",
+                            Name = "Sender Name",
+                            Phone = "Sender Phone",
+                            Postcode = "Sender Postcode"
+                        },
+                        Receiver = new Address
+                        {
+                            Address1 = string.Empty,
+                            Address2 = "My Address 2",
+                            Name = string.Empty,
+                            Phone = string.Empty,
+                            Postcode = string.Empty
+                        }
+                    });
 
             "When I submit the consignment".x(async () => response = await ExecuteHttpAsync(new AddConsignmentCommand
             {
@@ -254,9 +256,11 @@ namespace AzureParcelTracking.Tests.Acceptance
                 savedConsignment = await consignmentRepository.Get(returnedConsignment.Id);
             });
 
-            "And a consignment has a record id".x(() => Assert.NotEqual(Guid.Empty, savedConsignment.Id));
-
-            "And it has a created date".x(() => Assert.NotEqual(default, savedConsignment.CreatedAtUtc));
+            "And a consignment has a record id and created date".x(() =>
+            {
+                Assert.NotEqual(Guid.Empty, savedConsignment.Id);
+                Assert.NotEqual(default, savedConsignment.CreatedAtUtc);
+            });
 
             "And it has matching sender details".x(() =>
             {

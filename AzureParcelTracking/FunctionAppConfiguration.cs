@@ -20,8 +20,9 @@ namespace AzureParcelTracking
                 .DefaultHttpResponseHandler<HttpResponseHandler>()
                 .Functions(functions =>
                     functions
-                        .HttpRoute("/api/consignment/v1/post", route => route.HttpFunction<AddConsignmentCommand>(HttpMethod.Post))
-                        .HttpRoute("/api/consignment/v1/get", route => route.HttpFunction<GetConsignmentQuery>(HttpMethod.Get))
+                        .HttpRoute("/api/consignment/v1/add", route => route.HttpFunction<AddConsignmentCommand>(HttpMethod.Post))
+                        .HttpRoute("/api/consignment/v1/", route => route.HttpFunction<GetConsignmentQuery>(HttpMethod.Get))
+                        .HttpRoute("/api/tracking/v1/add", route => route.HttpFunction<AddTrackingCommand>(HttpMethod.Post))
                 );
         }
     }

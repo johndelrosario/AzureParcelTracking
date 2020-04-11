@@ -6,6 +6,6 @@ namespace AzureParcelTracking.Commands.Models
     {
         public Guid ConsignmentId { get; set; }
 
-        public Address CurrentAddress { get; set; }
+        public Address Address { get; set; }
     }
 }

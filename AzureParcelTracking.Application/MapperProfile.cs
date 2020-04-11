@@ -11,6 +11,8 @@ namespace AzureParcelTracking.Application
             CreateMap<NewConsignment, ConsignmentRecord>();
             CreateMap<ConsignmentRecord, Consignment>();
             CreateMap<Address, AddressRecord>().ReverseMap();
+            CreateMap<NewTracking, TrackingRecord>();
+            CreateMap<TrackingRecord, Tracking>();
         }
     }
 }

@@ -35,7 +35,8 @@ namespace AzureParcelTracking.Application
         {
             return services
                 .AddTransient<IValidator<AddConsignmentCommand>, AddConsignmentCommandValidator>()
-                .AddTransient<IValidator<GetConsignmentQuery>, GetConsignmentQueryValidator>();
+                .AddTransient<IValidator<GetConsignmentQuery>, GetConsignmentQueryValidator>()
+                .AddTransient<IValidator<AddTrackingCommand>, AddTrackingCommandValidator>();
         }
     }
 }
