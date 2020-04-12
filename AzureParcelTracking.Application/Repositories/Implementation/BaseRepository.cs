@@ -46,9 +46,9 @@ namespace AzureParcelTracking.Application.Repositories.Implementation
         {
             var targetItem = TryGetTargetItem(id);
 
-            RunLoadWith(targetItem);
+            var result = RunLoadWith(targetItem);
 
-            return Task.FromResult(targetItem);
+            return Task.FromResult(result);
         }
 
         public virtual Task<IReadOnlyList<TType>> Get(Func<TType, bool> predicate)
@@ -57,7 +57,9 @@ namespace AzureParcelTracking.Application.Repositories.Implementation
 
             targetItems.AddRange(Collection.Where(predicate));
 
-            return Task.FromResult<IReadOnlyList<TType>>(targetItems);
+            var results = RunLoadWith(targetItems);
+
+            return Task.FromResult(results);
         }
 
         public virtual Task Update(TType item, Guid userId)
@@ -77,14 +79,14 @@ namespace AzureParcelTracking.Application.Repositories.Implementation
             if (expression?.Body != null) _loadWithExpressions.Add(expression);
         }
 
-        protected virtual void RunLoadWith(TType result)
+        protected virtual TType RunLoadWith(TType result)
         {
-            // Optional implementation
+            return result;
         }
 
-        protected virtual void RunLoadWith(IReadOnlyList<TType> results)
+        protected virtual IReadOnlyList<TType> RunLoadWith(IReadOnlyList<TType> results)
         {
-            // Optional implementation
+            return results;
         }
 
         private TType TryGetTargetItem(TType item)
