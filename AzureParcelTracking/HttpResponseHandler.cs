@@ -16,7 +16,8 @@ namespace AzureParcelTracking
     {
         private static readonly Dictionary<Type, HttpStatusCode> ExceptionResponses = new Dictionary<Type, HttpStatusCode>
         {
-            { typeof(ItemNotFoundException), HttpStatusCode.NotFound }
+            { typeof(ItemNotFoundException), HttpStatusCode.NotFound },
+            { typeof(ConsignmentAlreadyDeliveredException), HttpStatusCode.Forbidden }
         };
 
         public Task<IActionResult> CreateResponse<TCommand, TResult>(TCommand command, TResult result) where TCommand : ICommand<TResult>

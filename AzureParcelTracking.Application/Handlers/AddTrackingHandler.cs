@@ -33,7 +33,7 @@ namespace AzureParcelTracking.Application.Handlers
             _consignmentRepository.LoadWith(item => item.TrackingRecords);
             var consignment = await _consignmentRepository.Get(command.Tracking.ConsignmentId);
 
-            if (consignment.TrackingRecords.Any(record => record.TrackingType == TrackingType.Delivered))
+            if (consignment.TrackingRecords?.Any(record => record.TrackingType == TrackingType.Delivered) ?? false)
             {
                 throw new ConsignmentAlreadyDeliveredException(ConsignmentAlreadyDeliveredMessage);
             }
