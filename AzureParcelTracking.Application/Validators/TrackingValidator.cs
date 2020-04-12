@@ -9,6 +9,7 @@ namespace AzureParcelTracking.Application.Validators
         {
             RuleFor(tracking => tracking.ConsignmentId).NotEmpty();
             RuleFor(tracking => tracking.Address).NotNull().SetValidator(new TrackingAddressValidator());
+            RuleFor(tracking => tracking.TrackingType).NotEmpty();
         }
     }
 }

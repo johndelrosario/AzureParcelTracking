@@ -7,5 +7,7 @@ namespace AzureParcelTracking.Commands
     public class GetConsignmentQuery : ICommand<Consignment>
     {
         public Guid Id { get; set; }
+
+        public bool WithTracking { get; set; }
     }
 }

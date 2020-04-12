@@ -16,6 +16,8 @@ namespace AzureParcelTracking.Application.Handlers
 
         public AddConsignmentHandler(IConsignmentRepository consignmentRepository, IMapper mapper)
         {
+            consignmentRepository.LoadWith(record => record.TrackingRecords);
+
             _consignmentRepository = consignmentRepository;
             _mapper = mapper;
         }

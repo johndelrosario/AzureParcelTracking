@@ -8,6 +8,8 @@ namespace AzureParcelTracking.Application
     {
         public MapperProfile()
         {
+            AllowNullCollections = true;
+
             CreateMap<NewConsignment, ConsignmentRecord>();
             CreateMap<ConsignmentRecord, Consignment>();
             CreateMap<Address, AddressRecord>().ReverseMap();

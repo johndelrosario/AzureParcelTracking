@@ -1,4 +1,5 @@
 ﻿using System;
+using AzureParcelTracking.Commands.Enums;
 
 namespace AzureParcelTracking.Commands.Models
 {
@@ -7,5 +8,7 @@ namespace AzureParcelTracking.Commands.Models
         public Guid ConsignmentId { get; set; }
 
         public Address Address { get; set; }
+
+        public TrackingType TrackingType { get; set; }
     }
 }

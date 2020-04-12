@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace AzureParcelTracking.Commands.Models
 {
@@ -9,5 +10,7 @@ namespace AzureParcelTracking.Commands.Models
         public Guid CreatedByUserId { get; set; }
 
         public Guid Id { get; set; }
+
+        public IReadOnlyList<Tracking> TrackingRecords { get; set; }
     }
 }

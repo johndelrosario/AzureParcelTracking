@@ -27,8 +27,8 @@ namespace AzureParcelTracking.Application
         private static IServiceCollection AddRepositories(this IServiceCollection services)
         {
             return services
-                .AddSingleton<IConsignmentRepository, ConsignmentRepository>()
-                .AddSingleton<ITrackingRepository, TrackingRepository>();
+                .AddTransient<IConsignmentRepository, ConsignmentRepository>()
+                .AddTransient<ITrackingRepository, TrackingRepository>();
         }
 
         private static IServiceCollection AddValidators(this IServiceCollection services)

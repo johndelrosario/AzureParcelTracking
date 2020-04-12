@@ -20,6 +20,11 @@ namespace AzureParcelTracking.Application.Handlers
 
         public async Task<Consignment> ExecuteAsync(GetConsignmentQuery command, Consignment previousResult)
         {
+            if (command.WithTracking)
+            {
+                _consignmentRepository.LoadWith(item => item.TrackingRecords);
+            }
+
             var consignment = await _consignmentRepository.Get(command.Id);
 
             return _mapper.Map<Consignment>(consignment);
