@@ -1,0 +1,165 @@
+{
+	"info": {
+		"_postman_id": "2c28ab43-9f64-4469-9d53-a470bd2fb95c",
+		"name": "ParcelTracking",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Consignment",
+			"item": [
+				{
+					"name": "Add Consignment",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6ImQ1Y2JmNTA5LTkyNjgtNGUxZC05YzVjLWRmNGUwMjdhNTZmZSIsImV4cCI6MTU4NjczOTY1OSwiaXNzIjoiUGFyY2VsVHJhY2tpbmdBcHAiLCJhdWQiOiJQYXJjZWxUcmFja2luZ0FwcCJ9.Z8ZmcQfMnmNLyRYdVR9nGg3-dNNwe07OxWh0ib4hDHo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Consignment\": {\n\t\t\"Sender\": {\n\t\t\t\"Name\": \"Sender Tester\",\n\t\t\t\"Address1\": \"Test Address 1\",\n\t\t\t\"Address2\": \"Test Address 2\",\n\t\t\t\"Postcode\": \"123456\",\n\t\t\t\"Phone\": \"123456\"\n\t\t},\n\t\t\"Receiver\": {\n\t\t\t\"Name\": \"Receiver Tester\",\n\t\t\t\"Address1\": \"Test Address 1\",\n\t\t\t\"Address2\": \"Test Address 2\",\n\t\t\t\"Postcode\": \"123456\",\n\t\t\t\"Phone\": \"123456\"\n\t\t}\n\t}\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/consignment/v1/add",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"consignment",
+								"v1",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Consignment",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Id\": \"c35db9b7-f32f-4be9-99bc-f4cd27a8ab9c\",\n\t\"WithTracking\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/consignment/v1/",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"consignment",
+								"v1",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Tracking",
+			"item": [
+				{
+					"name": "Add Tracking",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6ImQ1Y2JmNTA5LTkyNjgtNGUxZC05YzVjLWRmNGUwMjdhNTZmZSIsImV4cCI6MTU4NjczOTY1OSwiaXNzIjoiUGFyY2VsVHJhY2tpbmdBcHAiLCJhdWQiOiJQYXJjZWxUcmFja2luZ0FwcCJ9.Z8ZmcQfMnmNLyRYdVR9nGg3-dNNwe07OxWh0ib4hDHo",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"Tracking\": {\n\t\t\"Address\": {\n\t\t\t\"Address1\": \"Test Address 1\",\n\t\t\t\"Address2\": \"Test Address 2\",\n\t\t\t\"Postcode\": \"123456\"\n\t\t},\n\t\t\"ConsignmentId\": \"ea1cde74-4b37-4aed-9042-a374c1f81558\",\n\t\t\"TrackingType\": 1\n\t},\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/tracking/v1/add",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"tracking",
+								"v1",
+								"add"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Token",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"username\": \"admin\",\n\t\"password\": \"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/token",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"token"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
