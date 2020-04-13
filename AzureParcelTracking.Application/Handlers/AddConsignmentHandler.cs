@@ -27,7 +27,7 @@ namespace AzureParcelTracking.Application.Handlers
         {
             var consignment = _mapper.Map<ConsignmentRecord>(command.Consignment);
 
-            await AddConsignmentToRepository(consignment, command.CreatedByUserId);
+            await AddConsignmentToRepository(consignment, Guid.Parse(command.CreatedByUserId));
 
             return _mapper.Map<Consignment>(consignment);
         }

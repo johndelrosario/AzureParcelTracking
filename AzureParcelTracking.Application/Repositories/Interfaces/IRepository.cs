@@ -6,7 +6,7 @@ using AzureParcelTracking.Application.Models;
 
 namespace AzureParcelTracking.Application.Repositories.Interfaces
 {
-    internal interface IRepository<TType> where TType : BaseRecord, new()
+    public interface IRepository<TType> where TType : BaseRecord, new()
     {
         Task<TType> Get(Guid id);
 

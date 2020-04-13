@@ -41,7 +41,7 @@ namespace AzureParcelTracking.Tests.Acceptance
 
             "When I submit the consignment".x(async () => response = await ExecuteHttpAsync(new AddConsignmentCommand
             {
-                CreatedByUserId = Guid.NewGuid(),
+                CreatedByUserId = Guid.NewGuid().ToString(),
                 Consignment = newConsignment
             }));
 
@@ -144,7 +144,7 @@ namespace AzureParcelTracking.Tests.Acceptance
 
             "When I submit the consignment".x(async () => response = await ExecuteHttpAsync(new AddConsignmentCommand
             {
-                CreatedByUserId = Guid.NewGuid(),
+                CreatedByUserId = Guid.NewGuid().ToString(),
                 Consignment = newConsignment
             }));
 
@@ -194,7 +194,7 @@ namespace AzureParcelTracking.Tests.Acceptance
 
             "When I submit the consignment".x(async () => response = await ExecuteHttpAsync(new AddConsignmentCommand
             {
-                CreatedByUserId = Guid.NewGuid(),
+                CreatedByUserId = Guid.NewGuid().ToString(),
                 Consignment = newConsignment
             }));
 
@@ -244,7 +244,7 @@ namespace AzureParcelTracking.Tests.Acceptance
 
             "When i submit the consignment".x(async () => response = await ExecuteHttpAsync(new AddConsignmentCommand
             {
-                CreatedByUserId = Guid.NewGuid(),
+                CreatedByUserId = Guid.NewGuid().ToString(),
                 Consignment = newConsignment
             }));
 

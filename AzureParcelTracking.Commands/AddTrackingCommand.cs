@@ -8,6 +8,7 @@ namespace AzureParcelTracking.Commands
     {
         public NewTracking Tracking { get; set; }
 
-        public Guid CreatedByUserId { get; set; }
+        [SecurityProperty]
+        public string CreatedByUserId { get; set; }
     }
 }

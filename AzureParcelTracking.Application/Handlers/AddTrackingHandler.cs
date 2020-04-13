@@ -40,7 +40,7 @@ namespace AzureParcelTracking.Application.Handlers
 
             var tracking = _mapper.Map<TrackingRecord>(command.Tracking);
 
-            await AddTrackingToRepository(tracking, command.CreatedByUserId);
+            await AddTrackingToRepository(tracking, Guid.Parse(command.CreatedByUserId));
 
             return _mapper.Map<Tracking>(tracking);
         }

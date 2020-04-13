@@ -8,6 +8,7 @@ namespace AzureParcelTracking.Commands
     {
         public NewConsignment Consignment { get; set; }
 
-        public Guid CreatedByUserId { get; set; }
+        [SecurityProperty]
+        public string CreatedByUserId { get; set; }
     }
 }

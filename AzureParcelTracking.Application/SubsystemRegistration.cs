@@ -1,5 +1,7 @@
 ﻿using AutoMapper;
 using AzureFromTheTrenches.Commanding.Abstractions;
+using AzureParcelTracking.Application.Helpers.Implementation;
+using AzureParcelTracking.Application.Helpers.Interface;
 using AzureParcelTracking.Application.Repositories.Implementation;
 using AzureParcelTracking.Application.Repositories.Interfaces;
 using AzureParcelTracking.Application.Validators;
@@ -16,6 +18,7 @@ namespace AzureParcelTracking.Application
         {
             services
                 .AddAutoMapper(typeof(SubsystemRegistration))
+                .AddTransient<IJwtHelper, JwtHelper>()
                 .AddValidators()
                 .AddRepositories();
 
@@ -28,7 +31,8 @@ namespace AzureParcelTracking.Application
         {
             return services
                 .AddTransient<IConsignmentRepository, ConsignmentRepository>()
-                .AddTransient<ITrackingRepository, TrackingRepository>();
+                .AddTransient<ITrackingRepository, TrackingRepository>()
+                .AddTransient<IUserRepository, UserRepository>();
         }
 
         private static IServiceCollection AddValidators(this IServiceCollection services)
@@ -36,7 +40,8 @@ namespace AzureParcelTracking.Application
             return services
                 .AddTransient<IValidator<AddConsignmentCommand>, AddConsignmentCommandValidator>()
                 .AddTransient<IValidator<GetConsignmentQuery>, GetConsignmentQueryValidator>()
-                .AddTransient<IValidator<AddTrackingCommand>, AddTrackingCommandValidator>();
+                .AddTransient<IValidator<AddTrackingCommand>, AddTrackingCommandValidator>()
+                .AddTransient<IValidator<GetToken>, GetTokenValidator>();
         }
     }
 }

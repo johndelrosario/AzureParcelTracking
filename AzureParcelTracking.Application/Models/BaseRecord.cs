@@ -2,7 +2,7 @@
 
 namespace AzureParcelTracking.Application.Models
 {
-    internal class BaseRecord
+    public class BaseRecord
     {
         public DateTime CreatedAtUtc { get; set; }
         public Guid CreatedByUserId { get; set; }

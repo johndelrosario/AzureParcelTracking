@@ -71,7 +71,7 @@ namespace AzureParcelTracking.Tests.Acceptance
 
             "When I submit the tracking".x(async () => response = await ExecuteHttpAsync(new AddTrackingCommand
             {
-                CreatedByUserId = Guid.NewGuid(),
+                CreatedByUserId = Guid.NewGuid().ToString(),
                 Tracking = newTracking
             }));
 
@@ -150,7 +150,7 @@ namespace AzureParcelTracking.Tests.Acceptance
             "When I submit the tracking without a user id".x(async () => response = await ExecuteHttpAsync(
                 new AddTrackingCommand
                 {
-                    CreatedByUserId = Guid.NewGuid(),
+                    CreatedByUserId = Guid.NewGuid().ToString(),
                     Tracking = newTracking
                 }));
 
@@ -185,7 +185,7 @@ namespace AzureParcelTracking.Tests.Acceptance
             "When I submit the tracking without a user id".x(async () => response = await ExecuteHttpAsync(
                 new AddTrackingCommand
                 {
-                    CreatedByUserId = Guid.NewGuid(),
+                    CreatedByUserId = Guid.NewGuid().ToString(),
                     Tracking = newTracking
                 }));
 
@@ -222,7 +222,7 @@ namespace AzureParcelTracking.Tests.Acceptance
             "When I submit the tracking".x(async () => response = await ExecuteHttpAsync(
                 new AddTrackingCommand
                 {
-                    CreatedByUserId = Guid.NewGuid(),
+                    CreatedByUserId = Guid.NewGuid().ToString(),
                     Tracking = newTracking
                 }));
 
@@ -260,7 +260,7 @@ namespace AzureParcelTracking.Tests.Acceptance
             "When I submit the tracking".x(async () => response = await ExecuteHttpAsync(
                 new AddTrackingCommand
                 {
-                    CreatedByUserId = Guid.NewGuid(),
+                    CreatedByUserId = Guid.NewGuid().ToString(),
                     Tracking = newTracking
                 }));
 
@@ -290,7 +290,7 @@ namespace AzureParcelTracking.Tests.Acceptance
             "When I submit the tracking".x(async () => response = await ExecuteHttpAsync(
                 new AddTrackingCommand
                 {
-                    CreatedByUserId = Guid.NewGuid(),
+                    CreatedByUserId = Guid.NewGuid().ToString(),
                     Tracking = newTracking
                 }));
 
